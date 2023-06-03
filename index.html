@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="whole-page">
+      <div class="main" id="main">
+        <input type="text" id="result" readonly />
+        <div class="buttons">
+          <input type="button" value="1" onclick="res('1')" />
+          <input type="button" value="2" onclick="res('2')" />
+          <input type="button" value="3" onclick="res('3')" />
+          <input type="button" value="+" onclick="res('+')" />
+          <input type="button" value="4" onclick="res('4')" />
+          <input type="button" value="5" onclick="res('5')" />
+          <input type="button" value="6" onclick="res('6')" />
+          <input type="button" value="-" onclick="res('-')" />
+          <input type="button" value="7" onclick="res('7')" />
+          <input type="button" value="8" onclick="res('8')" />
+          <input type="button" value="9" onclick="res('9')" />
+          <input type="button" value="*" onclick="res('*')" />
+          <input type="button" value="C" onclick="clearScreen()" />
+          <input type="button" value="0" onclick="res('0')" />
+          <input type="button" value="=" onclick="response()" />
+          <input type="button" value="/" onclick="res('/')" />
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let display = document.getElementById("result");
+      function res(symbol) {
+        display.value += symbol;
+      }
+      function response() {
+        display.value = eval(display.value);
+      }
+      function clearScreen() {
+        display.value = "";
+      }
+    </script>
+    <!-- --------------fog--------------- -->
+    <script src="three.r134.min.js"></script>
+    <script src="vanta.fog.min.js"></script>
+    <script>
+      let main = document.getElementById("whole-page");
+      VANTA.FOG({
+        el: main,
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.0,
+        minWidth: 200.0,
+        highlightColor: 0xa97f7f,
+        midtoneColor: 0xf7260c,
+        lowlightColor: 0x5900ff,
+        baseColor: 0xefbbbb,
+      });
+    </script>
+  </body>
+</html>
